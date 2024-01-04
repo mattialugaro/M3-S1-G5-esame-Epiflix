@@ -1,28 +1,15 @@
-import { Col, Row } from "react-bootstrap";
-import React, { useState, useEffect } from "react";
+import { Col } from "react-bootstrap";
+import React from "react";
 
-const MyPoster = moviesName => {
-    const movieUrl = `http://www.omdbapi.com/?apikey=2cb73588&s=${moviesName}`;
+const MyPoster = ({ movie }) => {
   
-    const [data, setData] = useState();
-  
-    useEffect(() => {
-      fetch(movieUrl)
-        .then(response => response.json())
-        .then(data => setData(data));
-    }, []);
-  
-    const movies = data?.Search?.map((movie, index) => (
-        <Col key={index} className="mb-2 text-center px-1">
-            <img src={movie.poster} alt="moviePicture" />
-        </Col>
-    ));
-  
-    return (
-        <Row xs={1} sm={2} lg={4} xl={6}>
-            {movies}
-        </Row>
-    );
-  };
-  
-  export default MyPoster;
+  const noImageSrc = "https://i.pinimg.com/474x/fc/7e/ce/fc7ece8e8ee1f5db97577a4622f33975.jpg";
+  return (
+    <Col className="mb-2 text-center px-1">
+      <img src={movie.Poster === "N/A" ? noImageSrc : movie.Poster} 
+      alt="moviePicture" style={{width: "280px", height: "300px", objectFit:"contain"}}/>
+    </Col>
+  );
+};
+
+export default MyPoster;

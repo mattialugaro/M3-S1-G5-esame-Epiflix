@@ -9,12 +9,12 @@ import MyList from './components/MyList';
 function App() {
   return (
       <Container fluid>
-      <MyNav />
-      <MySelection />
-      <MyList content="Trending Now" />
-      <MyList content="Watch it Again" />
-      <MyList content="New Releases" />
-      <MyFooter />
+        <MyNav />
+        <MySelection />
+        <MyList content="Trending Now" moviesName="superman" />
+        <MyList content="Watch it Again" moviesName="spiderman" />
+        <MyList content="New Releases" moviesName="lord of the rings" />
+        <MyFooter />  
       </Container>
   );
 }
